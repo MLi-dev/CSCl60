@@ -1,0 +1,5 @@
+# ninja log v5
+0	963	1641182424803859097	CMakeFiles/Factorial.dir/main.cpp.o	921b3b2fc315a67f
+965	1061	1641182424911553968	Factorial	b1acce30ddb6a3a5
+1	651	1641182567383061226	CMakeFiles/Factorial.dir/main.cpp.o	921b3b2fc315a67f
+651	709	1641182567444173334	Factorial	b1acce30ddb6a3a5

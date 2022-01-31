@@ -1,0 +1,3 @@
+/Users/matthew/Dev/CSCl60/pointerp1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/matthew/Dev/CSCl60/pointerp1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/matthew/Dev/CSCl60/pointerp1/cmake-build-debug/CMakeFiles/pointerp1.dir
