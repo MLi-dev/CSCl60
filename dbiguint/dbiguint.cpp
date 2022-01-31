@@ -110,6 +110,30 @@ void dbiguint::operator += (const dbiguint & b){
     data_[i] = data_[i] + y;
 }
 
+void dbiguint::operator*=(const dbiguint &b) {
+    int aValue = 0;
+    int digits = 1;
+    for(int i = 0; i<size(); i++) {
+        aValue+=data_[i] * digits;
+        digits*=10;
+    }
+    int bValue = 0;
+    digits = 1;
+    for(int i = 0; i<b.size(); i++) {
+        bValue +=b[i]*digits;
+        digits*=10;
+    }
+    int cValue = aValue*bValue;
+    std::string s = std::to_string(cValue);
+    reserve(s.size());
+    int j=0;
+    for(int i=size()-1; i>=0; i--) {
+        data_[i] = s[j] - 48;
+        j++;
+    }
+
+}
+
 void dbiguint::operator -=(const dbiguint& b){
     if(this->compare(b) == -1) {
         reserve(1);
@@ -197,29 +221,6 @@ dbiguint operator-(const dbiguint& a, const dbiguint& b) {
     return c;
 }
 
-void dbiguint::operator*=(const dbiguint &b) {
-    int aValue = 0;
-    int digits = 1;
-    for(int i = 0; i<size(); i++) {
-        aValue+=data_[i] * digits;
-        digits*=10;
-    }
-    int bValue = 0;
-    digits = 1;
-    for(int i = 0; i<b.size(); i++) {
-        bValue +=b[i]*digits;
-        digits*=10;
-    }
-    int cValue = aValue*bValue;
-    std::string s = std::to_string(cValue);
-    reserve(s.size());
-    int j=0;
-    for(int i=size()-1; i>=0; i--) {
-        data_[i] = s[j] - 48;
-        j++;
-    }
-
-}
 
 int dbiguint::compare(const dbiguint & b) const {
     if(this == &b) {
