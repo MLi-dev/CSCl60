@@ -109,7 +109,7 @@ void dbiguint::operator += (const dbiguint & b){
     }
     data_[i] = data_[i] + y;
 }
-
+// add comments
 void dbiguint::operator*=(const dbiguint &b) {
     int aValue = 0;
     int digits = 1;
