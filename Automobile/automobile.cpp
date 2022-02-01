@@ -43,6 +43,7 @@ bool automobile::park(bool *lot, int size) {
     for(int i = 0; i<size; i++) {
         if(!lot[i]) {
             lot[i] = true;
+            stall_ = i; 
             return lot[i];
         }
     }
