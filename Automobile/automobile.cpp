@@ -9,7 +9,7 @@ automobile::automobile() {
     model_ = "";
     year_ = 0;
     price_ = 0.00;
-    stall_ = 0;
+    stall_ = -1;
 }
 automobile::automobile(std::string autoMake, std::string autoModel, int autoYear, double autoPrice, int autoStall) {
     make_ = autoMake;
@@ -40,5 +40,11 @@ void automobile::setStall(int autoStall) {
     stall_ = autoStall;
 }
 bool automobile::park(bool *lot, int size) {
-
+    for(int i = 0; i<size; i++) {
+        if(!lot[i]) {
+            lot[i] = true;
+            return lot[i];
+        }
+    }
+    return false;
 }
