@@ -1,6 +1,7 @@
 #include <iostream>
 #include "automobile.h"
 #include "pickup.h"
+#include "van.h"
 using namespace std;
 int main() {
     automobile a("Ford", "Subaru", 2001, 1999.99, 4);
@@ -44,5 +45,25 @@ int main() {
     for(int i = 0; i<10; i++) {
         cout<<p.park(parkingSpot2, 15)<<endl; //parkingSpot array only had 7 available spots, so will return false last 3 times.
         cout<<p.getStall()<<endl; //Tests if the stall changes depending on parking spot.
+    }
+    van v("ModelT", "Honda", 2003, 4243.99, 5, 8);
+    cout<<"V's make:"<<v.getMake()<<endl;
+    cout<<"V's model:"<<v.getModel()<<endl;
+    cout<<"V's year:"<<v.getYear()<<endl;
+    cout<<"V's price:"<<v.getPrice()<<endl;
+    cout<<"V's stall:"<<v.getStall()<<endl;
+    cout<<"V's seats:"<<v.getNumSeats()<<endl;
+    bool parkingSpot3[15];
+    for(int i = 0; i<15; i++) {
+        if(i%3 == 0) {
+            parkingSpot3[i] = true;
+        } else {
+            parkingSpot3[i] = false;
+        }
+        cout<<parkingSpot3[i]<<", ";
+    }
+    for(int i = 0; i<10; i++) {
+        cout<<v.park(parkingSpot3, 15)<<endl; //parkingSpot array only had 7 available spots, so will return false last 3 times.
+        cout<<v.getStall()<<endl; //Tests if the stall changes depending on parking spot. You want to get to very end and park.
     }
 }
