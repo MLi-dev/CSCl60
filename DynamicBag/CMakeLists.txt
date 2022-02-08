@@ -3,4 +3,4 @@ project(DynamicBag)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(DynamicBag main.cpp)
+add_executable(DynamicBag main.cpp DynamicBag.cpp DynamicBag.h dUSet.cpp dUSet.h)
