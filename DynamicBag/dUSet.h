@@ -4,10 +4,18 @@
 
 #ifndef DYNAMICBAG_DUSET_H
 #define DYNAMICBAG_DUSET_H
+#include "DynamicBag.h"
+#include <vector>
+#include <set>
 
-
-class dUSet {
-
+class dUSet: public DynamicBag {
+public:
+    dUSet();
+    dUSet(const DynamicBag& d);
+    void insert(int target);
+    bool targetExist(int target);
+private:
+    void removeDup(DynamicBag& b);
 };
 
 
