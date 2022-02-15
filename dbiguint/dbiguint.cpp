@@ -110,6 +110,30 @@ void dbiguint::operator += (const dbiguint & b){
     data_[i] = data_[i] + y;
 }
 
+void dbiguint::operator*=(const dbiguint &b) {
+    int aValue = 0;
+    int digits = 1;
+    for(int i = 0; i<size(); i++) {
+        aValue+=data_[i] * digits;
+        digits*=10;
+    }
+    int bValue = 0;
+    digits = 1;
+    for(int i = 0; i<b.size(); i++) {
+        bValue +=b[i]*digits;
+        digits*=10;
+    }
+    int cValue = aValue*bValue;
+    std::string s = std::to_string(cValue);
+    reserve(s.size());
+    int j=0;
+    for(int i=size()-1; i>=0; i--) {
+        data_[i] = s[j] - 48;
+        j++;
+    }
+
+}
+
 void dbiguint::operator -=(const dbiguint& b){
     if(this->compare(b) == -1) {
         reserve(1);
@@ -197,26 +221,7 @@ dbiguint operator-(const dbiguint& a, const dbiguint& b) {
     return c;
 }
 
-void dbiguint::operator*=(const dbiguint &b) {
-    std::size_t newSize = size()*b.size();
-    reserve(newSize);
-    unsigned short y = 0;
-    int dataIndex = 0;
-    for(int i = 0; i<b.size(); i++) {
-        for (int j = 0; j < size(); j++) {
-            unsigned short x = b[i] * data_[j] + y;
-            if (x >= 10) {
-                y = x / 10;
-                x = x - y * 10;
-                data_[dataIndex] = x;
-            } else {
-                data_[dataIndex] = x;
-                y = 0;
-            }
-            dataIndex++;
-        }
-    }
-}
+
 int dbiguint::compare(const dbiguint & b) const {
     if(this == &b) {
         return 0;

@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    dbiguint a("2");
+    dbiguint a("21");
     dbiguint a2("11");
    // a2.reserve(10);
   //  cout<<a2<<endl;
