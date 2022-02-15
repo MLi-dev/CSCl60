@@ -121,16 +121,19 @@ bool operator==(const NDimension<T>& t1, const NDimension<T>& t2) {
         return match;
     }
 }
+NDimension<int> operator-(const NDimension<string>& t1, NDimension<string>& t2) {
+    int* temp = new int[t1.getSize()];
+    for(int i = 0; i<t1.getSize(); i++) {
+        temp[i] = t1[i][0] - t2[i][0];
+    }
+    NDimension<int> stringdiff(t1.getSize(), temp);
+    return stringdiff;
+}
 
-template<class T>
-NDimension<int> operator-(const NDimension<T>& t1, NDimension<T>& t2) {
+NDimension<int> operator-(const NDimension<int>& t1, NDimension<int>& t2) {
         int* temp = new int[t1.getSize()];
         for(int i = 0; i<t1.getSize(); i++) {
-            if (typeid(t1[i]) == typeid(string)) {
-               // temp[i] = t1[i][0] - t2[i][0];
-            } else {
                 temp[i] = t1[i]-t2[i];
-            }
         }
     NDimension<int> stringdiff(t1.getSize(), temp);
     return stringdiff;
