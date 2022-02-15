@@ -44,8 +44,6 @@ void DynamicBag::operator=(const DynamicBag &b) {
 }
 int DynamicBag::operator[](std::size_t pos) const {
     assert(pos<used_);
-//    cout<<"pos: "<< pos <<endl;
-//    cout<<"data_[pos]: "<< data_[pos]<<endl;
     return data_[pos];
 }
 
@@ -67,8 +65,6 @@ std::size_t DynamicBag::count(int entry) const{
 void DynamicBag::insert(int target) {
     if(used_<capacity_) {
         data_[used_] = target;
-//        cout<<"used : " << used_<<endl;
-//        cout<<data_[used_]<<endl;
         used_++;
     }
     else {
@@ -76,13 +72,11 @@ void DynamicBag::insert(int target) {
             capacity_ = 1;
         } else {
             capacity_*=2;
-            int* temp = new int [capacity_];
+            int* temp = new int [used_];
             for(std::size_t i = 0; i<used_; i++) {
                 temp[i] = data_[i];
             }
             temp[used_] = target;
-            cout<<"used: "<< used_<<endl;
-            cout<<temp[used_]<<endl;
             used_++;
             delete data_;
             data_ = temp;
@@ -95,8 +89,6 @@ void DynamicBag::operator+=(const DynamicBag& b) {
         for(std::size_t i = 0; i<b.size(); i++) {
             data_[used_++] = b[i];
         }
-//        cout<<"used : " << used_<<endl;
-//        cout<<data_[used_]<<endl;
     }
     else {
         capacity_ = totalSize;

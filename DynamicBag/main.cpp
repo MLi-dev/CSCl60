@@ -15,8 +15,6 @@ int main() {
 //    cout<<d1.erase_one(3)<<endl;
 //    cout<<d1<<endl;
     dUSet dU1(d2);
-    //dU1.insert(6);
+    dU1.insert(6);
     cout<<dU1<<endl;
-
-
 }
