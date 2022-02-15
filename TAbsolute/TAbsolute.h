@@ -5,10 +5,14 @@
 #ifndef TABSOLUTE_TABSOLUTE_H
 #define TABSOLUTE_TABSOLUTE_H
 
-
-class TAbsolute {
-
-};
-
-
-#endif //TABSOLUTE_TABSOLUTE_H
+namespace TAbsoluteLi
+{
+    template<class T>
+    class TAbsolute
+    {
+    public:
+        T absolute(T a, T b);
+        T frequent(T a[], std::size_t size);
+    };
+}// TAbsoluteLi
+#endif
